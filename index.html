@@ -58,10 +58,10 @@
       <rect x="15.5" y="316.5" class="left st3" width="31" height="31"/>
     </g>
     <g id="M" >
+      <rect x="340.2" y="235.3" class="m st3" width="155" height="33"/>
+      <rect x="340.2" y="235.3" class="m st2" width="33" height="155"/>
       <rect x="401.2" y="235.3" class="m st1" width="33" height="155"/>
       <rect x="462.2" y="235.3" class="m st6" width="33" height="155"/>
-      <rect x="340.2" y="235.3" class="m st2" width="33" height="155"/>
-      <rect x="340.2" y="235.3" class="m st3" width="155" height="33"/>
     </g>
     <g id="E">
       <rect x="546.2" y="296.3" class="e st3" width="89" height="33"/>
@@ -85,10 +85,12 @@
     var aboutH1 = document.getElementById("about");
     function title() {
       timeline.from(notAboutH1, {x:-150, duration: .5, alpha: 0, ease: "back"},1);
-      timeline.from("#M", {scale:0, y:-50, duration: .5, alpha: 0});
-      timeline.from("#E", {scale:0, y:-50, duration: .5, alpha: 0});
-      timeline.to(notAboutH1, {x:200, duration: .5, alpha: 0, ease: "back"},4);
-      timeline.from(aboutH1, {x:-150, duration: 1, alpha: 0, ease: "back"});
+      // timeline.from("#M", {scale:0, y:-50, duration: .5, alpha: 0});
+      timeline.from(".m", { y: -20, scale: .5, alpha: 0, stagger: .25});
+      // timeline.from("#E", {scale:0, y:-50, duration: .5, alpha: 0});
+      timeline.from(".e", { y: -20, scale: .5, alpha: 0, stagger: .25});
+      timeline.to(notAboutH1, {x:200, duration: .5, alpha: 0, ease: "back"},8);
+      timeline.from(aboutH1, {x:-150, duration: .8, alpha: 0, ease: "back"});
       timeline.to("#M", {rotate:180, transformOrigin:"50% 67%", y:-50, duration: .5});
     };
     title()
